@@ -1,0 +1,53 @@
+body {
+    background-color: antiquewhite;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    border-bottom: 1px solid black;
+    padding: 16px;
+    background-color: orange;
+}
+
+main {
+    padding: 16px;
+}
+
+h1 {
+    color: teal;
+}
+
+.menu_items {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+.menu_item {
+    padding: 0px 15px;
+}
+
+footer {
+    padding: 24px 0px 24px 0px;
+    background-color: chartreuse;
+}
+
+img {
+    height: 200px;
+}
+
+a:link, a:visited {
+    color: green;
+}
+
+a:hover {
+    cursor:hand;
+    color: chartreuse;
+}
+.table_top_row {
+    background-color: grey;
+    color: white;
+}
+.every_other {
+    background-color: lightgrey;
+}
