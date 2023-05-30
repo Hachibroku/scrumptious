@@ -11,7 +11,8 @@
 <body>
 <header>
     <nav>
-        <a href="list.html">Main</a>
+        <a href="{% url 'recipe_list' %}">Main</a>
+        <a href="{% url 'create_recipe' %}">Create a recipe</a>
     </nav>
 </header>
 <main>
@@ -21,7 +22,7 @@
         {% for recipe in recipe_list %}
       <div class="menu_item">
         <h3>
-            <a href="detail.html">{{ recipe.title }}</a>
+            <a href="{% url 'show_recipe' recipe.id %}">{{ recipe.title }}</a>
         </h3>
         <img src ="{{ recipe.picture }}">
         <div>4.3 stars</div>

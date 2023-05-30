@@ -13,11 +13,12 @@
 <body>
     <header>
         <nav>
-            <a href="list.html">Main</a>
+            <a href="{% url 'recipe_list' %}">Main</a>
         </nav>
     </header>
     <main>
         <h1>{{ recipe_object.title }}</h1>
+        <p>{{ recipe.created_on|date:"M j, o" }}</p>
         <img src ="{{ recipe_object.picture }}" alt="A picture of vegetarian tacos">
         <div>4.3 stars</div>
         <p>{{ recipe_object.description }}</p>
