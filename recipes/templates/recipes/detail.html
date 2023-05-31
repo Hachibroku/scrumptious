@@ -23,42 +23,27 @@
         <div>4.3 stars</div>
         <p>{{ recipe_object.description }}</p>
         <h2>Ingredients</h2>
-        <table>
-            <tbody>
-                <tr class="table_top_row">
+        <table class="ingredients_table">
+            <thread>
+                <tr>
                     <th>Amount</th>
                     <th>Food item</th>
                 </tr>
+            </thread>
+            <tbody>
+                {% for ingredient in recipe_object.ingredients.all %}
                 <tr>
-                    <td>1 cup</td>
-                    <td>Green beans</td>
+                    <td>{{ ingredient.amount }}</td>
+                    <td>{{ ingredient.food_item }}</td>
                 </tr>
-                <tr class="every_other">
-                    <td>3 ears</td>
-                    <td>Fresh corn</td>
-                </tr>
-                <tr>
-                    <td>2 cups</td>
-                    <td>Tomatillo salsa</td>
-                </tr>
-                <tr class="every_other">
-                    <td>8</td>
-                    <td>Corn tortillas</td>
-                </tr>
-                <tr>
-                    <td>0.5</td>
-                    <td>Cotija cheese</td>
-                </tr>
+                {% endfor %}
             </tbody>
         </table>
         <h2>Steps</h2>
         <ol>
-            <li>Blanch the green beans</li>
-            <li>Grill the green beans and ears of corn</li>
-            <li>chop the green beans</li>
-            <li>Slice the corn off the cob</li>
-            <li>Grill the tortillas</li>
-            <li>Assemble the tacos with veggies, salsa and cheese</li>
+            {% for step in recipe_object.steps.all %}
+                <li>{{ step.instruction }}</li>
+        {% endfor %}
         </ol>
     </main>
     <footer>Made with love by Scrumptious Recipes</footer>
