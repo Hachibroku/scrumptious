@@ -26,7 +26,7 @@
     <h1>Scrumptious Recipes</h1>
     <h2>All the food that's fit to eat</h2>
     <div class = "menu_items">
-        {% for recipe in recipe_list %}
+        <!-- {% for recipe in recipe_list %} -->
       <div class="menu_item">
         <h3>
             <a href="{% url 'show_recipe' recipe.id %}">{{ recipe.title }}</a>
