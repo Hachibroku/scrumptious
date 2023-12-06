@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from recipes.models import Recipe
 from recipes.forms import RecipeForm
 
@@ -24,12 +24,12 @@ def create_recipe(request):
         if form.is_valid():
             form.save()
             return redirect("hoopty doopy")
-        else:
-            form = RecipeForm()
-        context = {
-            "form": form,
-        }
-        return render(request, "recipes/create.html", context)
+    else:
+        form = RecipeForm()
+    context = {
+        "form": form,
+    }
+    return render(request, "recipes/create.html", context)
 
 def redirect_to_recipe_list(request):
     recipes = Recipe.objects.all()
