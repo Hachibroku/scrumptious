@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/Users/murphsmac/hack-reactor/projects/scrumptious/.venv"
+set -gx VIRTUAL_ENV "/Users/murphsmac/hack-reactor/mod-1/Legacy/scrumptious/.venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
