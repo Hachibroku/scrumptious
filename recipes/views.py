@@ -11,6 +11,7 @@ def show_recipe(request, id):
     }
     return render(request, "recipes/detail.html", context)
 
+
 def recipe_list(request):
     recipes = Recipe.objects.all()
     context = {
@@ -18,18 +19,37 @@ def recipe_list(request):
     }
     return render(request, "recipes/list.html", context)
 
+
 def create_recipe(request):
     if request.method == "POST":
         form = RecipeForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("hoopty doopy")
+            return redirect("recipe_list")
     else:
         form = RecipeForm()
     context = {
         "form": form,
     }
     return render(request, "recipes/create.html", context)
+
+
+def edit_recipe(request, id):
+    recipe = get_object_or_404(Recipe, id=id)
+    if request.method == "POST":
+        form = RecipeForm(request.POST, instance=recipe)
+        if form.is_valid():
+            form.save()
+            return redirect("show_recipe", id=id)
+    else:
+        form = RecipeForm(instance=recipe)
+
+    context = {
+        "recipe_object": recipe,
+        "form": form,
+    }
+    return render(request, "recipes/edit.html", context)
+
 
 def redirect_to_recipe_list(request):
     recipes = Recipe.objects.all()
